@@ -1,6 +1,6 @@
 import os
 from TRM_net_v2 import denoising_model
-from new_funciton import data_load, normalize, loss_function1,loss_function2, loss_function1_later, reverse, loss_function3, batch_normalize, split_reverse, split_normalize
+from new_funciton import data_load, normalize, loss_function1
 import torch
 import torch.utils.data as Data
 import torch.nn as nn
@@ -90,7 +90,7 @@ def main():
             pre_label = pre_label.view(64,1024)
             label = label.to(device).view(64,1024)
 
-            loss = loss_function2(pre_label, label)
+            loss = loss_function1(pre_label, label)
 
             loss.backward()
 
@@ -141,4 +141,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
